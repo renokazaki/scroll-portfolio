@@ -13,7 +13,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 
 export const ClownFish = (props) => {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("/models/clown_fish.glb");
+  const { nodes, materials, animations } = useGLTF("./models/clown_fish.glb");
   const { actions } = useAnimations(animations, group);
   const viewport = useThree((state) => state.viewport);
 
@@ -69,4 +69,4 @@ export const ClownFish = (props) => {
   );
 };
 
-useGLTF.preload("/models/clown_fish.glb");
+useGLTF.preload("./models/clown_fish.glb");

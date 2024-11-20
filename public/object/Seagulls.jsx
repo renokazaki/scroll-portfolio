@@ -169,4 +169,4 @@ export const Seagulls = (props) => {
   );
 };
 
-useGLTF.preload("/models/seagulls.glb");
+useGLTF.preload("./models/seagulls.glb");
