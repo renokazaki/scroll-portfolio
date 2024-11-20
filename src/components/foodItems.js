@@ -18,8 +18,10 @@ export const foodItems = [
       name: "cantact",
       description:
         "this page display contact for me",
-      model: "/models/Food_Ramen.gltf",
+      model: "/models/clown_fish.glb",
       page: 3,
+      scale:5,
+      rotation:[0,-5,0]
     },
     {
       name: "buffer",
