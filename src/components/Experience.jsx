@@ -1,9 +1,9 @@
+/* eslint-disable react/no-unknown-property */
 import { Environment, Scroll } from "@react-three/drei";
 
 import { foodItems } from "./foodItems.js";
 import { FoodItem } from "../../public/object/FoodItems.jsx";
 import { Scene } from "../../public/object/Scene.jsx";
-// import { ClownFish } from "../../public/object/ClownFish.jsx";
 import { Seagulls } from "../../public/object/Seagulls.jsx";
 
 export const Experience = () => {
