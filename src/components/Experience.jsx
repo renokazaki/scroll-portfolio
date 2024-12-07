@@ -11,7 +11,7 @@ export const Experience = () => {
     <>
       <Environment preset="sunset" />
       <Scroll>
-        <Seagulls scale={0.2} position-x={-3} position-y={1} />
+        <Seagulls scale={0.2} position={[-3, 1, 2]} />
         <Scene position-y={-10} />
         {foodItems.map((foodItem, idx) => (
           <FoodItem key={idx} {...foodItem} />

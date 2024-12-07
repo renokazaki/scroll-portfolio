@@ -1,23 +1,27 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
-import { useGLTF, useScroll } from "@react-three/drei";
+import { Float, useGLTF, useScroll } from "@react-three/drei";
 import { useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
-import { ClownFish } from "../../public/object/ClownFish.jsx";
 
 export const FoodItem = ({ model, page, scale, rotation }) => {
   const gltf = useGLTF(model);
   const viewport = useThree((state) => state.viewport);
   const ref = useRef();
   const scrollData = useScroll();
-  const fishRef = useRef();
+  const pages = scrollData.pages - 1;
+  const direction = page % 2 === 0 ? 1 : -1;
 
   useFrame(() => {
-    const pages = scrollData.pages - 1;
-    const offsetX = 5;
+    const offsetX = 20;
 
+    // ref.current.position.x =
+    //   scrollData.curve((page - 1) / pages, 3 / pages) * offsetX;
+
+    // 偶数ページは右側、奇数ページは左側から出る
     ref.current.position.x =
-      scrollData.curve((page - 1) / pages, 3 / pages) * offsetX;
+      scrollData.curve((page - 1) / pages, 4 / pages) * offsetX * direction;
+
     // const pageScroll = scrollData.offset;
 
     // // スクロールに基づくClownFishの上下移動
@@ -30,18 +34,20 @@ export const FoodItem = ({ model, page, scale, rotation }) => {
 
   return (
     <>
-      <group>
-        <ClownFish ref={fishRef} scale={5} position={[5, -4, 0]} />
-      </group>
-
-      <group ref={ref}>
-        <primitive
-          object={gltf.scene}
-          position={[-viewport.width, -viewport.height * page, 0]}
-          scale={scale}
-          rotation={rotation}
-        />
-      </group>
+      <Float floatSpeed={0.5}>
+        <group ref={ref}>
+          <primitive
+            object={gltf.scene}
+            position={[
+              -viewport.width * direction,
+              -viewport.height * page,
+              -2,
+            ]}
+            scale={scale}
+            rotation={rotation}
+          />
+        </group>
+      </Float>
     </>
   );
 };

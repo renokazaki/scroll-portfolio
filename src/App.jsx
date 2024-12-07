@@ -8,6 +8,7 @@ function App() {
     <>
       <Canvas camera={{ position: [0, 2, 12], fov: 30 }}>
         {/* <OrbitControls></OrbitControls> */}
+
         <ScrollControls pages={5}>
           {/* オブジェクト */}
           <Experience />
