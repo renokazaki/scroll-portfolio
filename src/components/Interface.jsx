@@ -19,7 +19,7 @@ export const Interface = () => {
         className="w-screen h-screen flex items-center justify-center"
         ref={introductionRef}
       >
-        <div className="text-3xl">Welcome to My Page!</div>
+        {/* <div className="text-3xl">Welcome to My Page!</div> */}
       </section>
       {foodItems.map((foodItem, index) => (
         <section key={index} className="w-screen h-screen p-16" ref={itemRef}>
